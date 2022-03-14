@@ -7,15 +7,16 @@ class product
   private $dsn;
   private $user;
   private $pass;
+  private $dbname;
   protected $con;
 
   function __construct()
   {
-
-    $this->dsn = "mysql:host=localhost;dbname=php_test";
+    $this->dbname="php_test";
+    $this->dsn = "mysql:host=localhost;dbname=$this->dbname";
     $this->user = "root";
     $this->pass = "";
-
+    
     try {
       $this->con = new PDO($this->dsn, $this->user, $this->pass);
 
